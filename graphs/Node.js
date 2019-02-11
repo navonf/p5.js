@@ -12,8 +12,12 @@ class Node {
 
     clicked(dx, dy) {
         let d = dist(dx, dy, this.x, this.y);
-        if(d < this.r)
-            console.log("you clicked node: " + this.key);
+        if(d < this.r) {
+            // We return the key for the node that is clicked.
+            const k = this.key;
+            return k;
+        }
+
     }
 
 }
