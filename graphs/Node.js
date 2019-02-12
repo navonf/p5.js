@@ -1,13 +1,22 @@
 class Node {
     constructor(x, y, key) {
-        this.x = x;
-        this.y = y;
-        this.r = 20;
-        this.key = key;
+        this.x        = x;
+        this.y        = y;
+        this.r        = 30;
+        this.key      = key;
+        this.children = [];
+        this.visited  = false;
     }
 
-    show() {
+    showNode() {
         ellipse(this.x, this.y, this.r);
+        text(this.key, this.x- (this.r/7), this.y + (this.r/8));
+    }
+
+    connectChildren(nodes) {
+        this.children.forEach((key) => {
+            line(this.x, this.y, nodes[key].x, nodes[key].y);
+        });
     }
 
     clicked(dx, dy) {
